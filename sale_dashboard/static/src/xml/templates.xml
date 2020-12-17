@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates  xml:space="preserve">
+    <t t-name="SaleTemplate">
+        <div class="jumbotron">
+            <div class="container">
+                <h1>Hello</h1>
+                <a class="fa fa-7x button_clickable fa-sign-in btn-secondary" aria-label="Sign in" title="Sign in"/>
+                <h3 class="mt0 mb0 text-muted">Click to
+                    <b>view sale report</b>
+                </h3>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="backend_dash">
+        <div class="container mt32">
+        <center><b><h1>Last Month Sale Report</h1></b></center>
+
+            <table class="table table-active table-bordered">
+                <thead class="table-warning">
+                    <th> Confirm Sale Orders </th>
+                    <th> Total Sale </th>
+                    <th> Paid Invoice Count </th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <t t-esc="product.confirm_count"/>
+                        </td>
+                        <td>
+                            <t t-esc="product.total_amount"/>
+                        </td>
+                        <td>
+                            <t t-esc="product.paid_invoice_count"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <center><b><h4>Most sold product</h4></b></center>
+            <table class="table table-active table-bordered">
+                <thead class="table-warning">
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Uom</th>
+                </thead>
+                <t t-foreach="product.product_list" t-as="p">
+                <tbody>
+                        <td>
+                            <t t-esc="p.name"/>
+                        </td>
+                        <td>
+                            <t t-esc="p.qty"/>
+                        </td>
+                        <td>
+                            <t t-esc="p.uom"/>
+                        </td>
+                </tbody>
+                </t>
+            </table>
+
+        </div>
+    </t>
+
+</templates>
